@@ -1,0 +1,11 @@
+*{
+    margin:0;
+    padding: 0;
+
+}
+
+body{
+    background-image: url("https://sofcon.com/Portals/0/EasyDNNnews/30/img-bigstock-Digital-Technology-Software-D-469432043.jpg");
+    background-position: center;
+    background-size: cover;
+}

@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: ("static/hacker.png");
+}
+p{
+    font-size: 3cm;
+    color:#fffcdd;
+    font-weight: bold;
+    
+  transition: linear 0.3s;
+}
