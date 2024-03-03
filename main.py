@@ -4,7 +4,7 @@ import hashlib
 
 app = Flask(__name__, static_url_path='/static')
 # Connect to MongoDB
-client = MongoClient('mongodb+srv://atharvd1893:atharv@login.wlasiru.mongodb.net/')
+client = MongoClient('mongodb+srv://atharvd1893:Atharv2003@p-manager.6v9vbrl.mongodb.net/?retryWrites=true&w=majority&appName=P-Manager')
 db = client['User_Data']  # Choose your database
 collection = db['Register']
 
@@ -31,7 +31,7 @@ def login():
                 # Insert data into MongoDB
                 user_data = {'email': email}
                 collection_login.insert_one(user_data)
-                return redirect(url_for('location'))  # Redirect to the 'location' route
+                return redirect(url_for('home'))  # Redirect to the 'location' route
             else:
                 # Password is incorrect, send alert message to the user
                 flash('Incorrect password. Please try again.', 'error')
@@ -47,9 +47,9 @@ def login():
 def register():
     if request.method == 'POST':
         # Get form data
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
+        username = request.form['username']
         email = request.form['email']
+        mobile_number = request.form['number']
         password = request.form['password']
         hashed_password = hashlib.sha1(password.encode()).hexdigest()
         # Check if email already exists in the database
@@ -58,9 +58,9 @@ def register():
         else:
             # Insert data into MongoDB
             user_data = {
-                'firstname': firstname,
-                'lastname': lastname,
+                'username': username,
                 'email': email,
+                'mobile_number': mobile_number,
                 'password': hashed_password,
                 'code': 0
             }

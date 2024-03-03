@@ -9,12 +9,56 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: ("static/hacker.png");
+  
+}
+
+#background{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    filter: grayscale(100%);
+    z-index: -1;
+}
+#overlay{
+
+    opacity: 50%;
+    background: black;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 0;
+    height: 100vh;
+    width: 100%;
+    filter: blur(100px);
 }
 p{
     font-size: 3cm;
-    color:#fffcdd;
+    color:white;
     font-weight: bold;
-    
-  transition: linear 0.3s;
+    z-index: 1; 
+
+}
+
+button{
+    position: absolute;
+    display: flex;
+    justify-content: baseline;
+    bottom: 3cm;
+    z-index: 1;
+    font-size: 0.8cm;
+    border-radius: 0.25cm;
+    border-color: white;
+    background-color: transparent;
+    padding: 0.25cm;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
 }

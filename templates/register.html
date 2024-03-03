@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Manager:Login</title>
-    <link rel = "stylesheet" href ="register_style.css">
+    <title>CipherVault: Register</title>
+    <link rel = "stylesheet"  href="{{ url_for('static', filename='register_style.css') }}">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+        </style>
+        
 </head>
 <body>
-    
+    <div id="overlay"></div>
+    <form action="/register" method="POST">
+        <h3> Welcome to CipherVault</h3>
+    <div class="form">
+        <label for="username">Full Name</label>
+        <input type="text" id="username" name="username" class="input-field" placeholder="Full Name" required autofocus>
+
+        <label for="email">Email </label>
+        <input type="email" id="email" name="email" class="input-field" placeholder="Email" required autofocus>
+
+        <label for="number">Mobile Number </label>
+        <input type="text" id="number" name="number" inputmode="numeric" pattern="[0-9]*"class="input-field"  placeholder="Mobile Number" maxlength="10" required autofocus>
+
+        <label for="password">Password </label>
+        <input type="password" id="password" name="password" class="input-field" placeholder="Create a Password" required autofocus>
+
+        <button id ="submitBtn" type="submit">Sign Up</button>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+   </form> 
 </body>
 </html>
