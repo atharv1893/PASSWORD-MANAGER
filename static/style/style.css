@@ -9,6 +9,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   
 }
 
@@ -43,7 +44,12 @@ p{
     z-index: 1; 
 
 }
-
+#tagline{
+    font-size: 0.5cm;
+    color:#cfa335;
+    font-weight: bold;
+    z-index: 1
+}
 button{
     position: absolute;
     display: flex;
@@ -53,12 +59,21 @@ button{
     font-size: 0.8cm;
     border-radius: 0.25cm;
     border-color: white;
-    background-color: transparent;
+    background-color: black;
     padding: 0.25cm;
     font-family: 'Times New Roman', Times, serif;
+    transition: 0.5s linear;
+}
+button:hover{
+    transform: scale(0.98);
+    background-color: rgb(255, 255, 255);
 }
 
 button a{
     text-decoration: none;
     color: white;
+}
+
+button a:hover{
+    color:black;
 }

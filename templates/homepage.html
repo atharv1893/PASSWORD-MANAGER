@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/home_style.css')}}">
+   
+    <title>Company Logo Fetcher</title>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- <div class="card">
+        <h2>Company Logo Fetcher</h2>
+        <input type="text" id="searchInput" placeholder="Enter company name">
+        <button onclick="fetchLogo()">Fetch Logo</button>
+        <div id="logoContainer"></div>
+    </div> -->
+        <button id = "popButton" onclick ="CardDisplay()">
+            <img src="{{url_for('static', filename='images/plus.png')}}" alt="plus sign">
+        </button>
+ <div class="overlay" id = "overlay"></div>
+        <div class="card" id="card">
+            <form i d="myForm">
+
+                <label for = "searchInput">Name</label>
+                <input type="text" id="searchInput" placeholder="Application Name" autocomplete="" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Create a Password" oninput="checkPasswordStrength(this.value)" autocomplete="" required>
+                <img src ='{{url_for('static', filename="images/dice.png")}}'
+                <span>Password must include</span>
+                <ul>
+                    <li class="condition" id="lengthCondition">At least 8 characters</li>
+                    <li class="condition" id="specialCharCondition">At least one special character</li>
+                    <li class="condition" id="capitalLetterCondition">At least one capital letter</li>
+                    <li class="condition" id="lowercaseLetterCondition">At least one lowercase letter</li>
+                    <li class="condition" id="numberCondition">At least one number</li>
+                    
+                </ul>
+                <button type="button" id="cancel">Cancel</button> 
+                <button id="save" onclick="fetchLogo()" >Save</button>
+                
+            </div>
+        </form>
+            <script src="{{url_for('static', filename='script/home_script.js')}}"></script>
+   
+</body>
+</html>

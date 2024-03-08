@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image:url("/static/sign.jpeg");
+    background-image:url("/static/images/dice.png");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -33,7 +33,7 @@ body::-webkit-scrollbar{
 }
 
 form{
-    height:15cm;
+    height:10cm;
     width:10cm;
     background-color: white;
     border-radius: 0.25cm;

@@ -1,0 +1,157 @@
+
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    background-color: #ebebeb;
+    z-index: 1;
+}
+
+#popButton{
+    position: absolute;
+    right:1cm;
+    bottom: 1cm;
+    background-color:gray ;
+    border: none;
+    height:1.5cm;
+    width:1.5cm;
+   border-radius: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   transition: 0.5s ease; 
+}
+#popButton img{
+    height:0.8cm;
+    width:0.8cm;
+}
+
+#popButton:hover{
+
+    background-color: #e50022;
+
+}
+
+.card {
+    position: fixed;
+    height: 11.5cm;
+    width:9cm;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 24px;
+    padding: 0.5cm; 
+    z-index: 3;
+    display: none;
+}
+
+.card form div {
+    display: block;
+    margin-bottom: 1em; /* Adjust as needed for spacing between elements */
+}
+
+.card label {
+    display: block;
+    width:2.5cm;
+    font-size: 0.5cm;
+    font-family: "Poppins", sans-serif;
+    margin-top: 0.5cm;
+    text-align: left;
+}
+
+.card input {
+    display: block;
+    width: 8.25cm;
+    height: 0.75cm; /* Ensure inputs take up full width of parent */
+    padding: 0.25cm;
+    border-radius: 0.4cm;
+    border: 2px solid rgba(128, 128, 128, 0.384);
+    margin-top: 0.25cm;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 0.4cm;
+}
+
+.card span {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 0.4cm;
+    color: gray;
+    margin-top: 0.2cm;
+}
+
+.card ul {
+    display: block;
+    padding-left: 0; /* Remove default padding of unordered list */
+}
+
+.card li {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    padding: 0.125cm;
+    list-style: none;
+}
+#cancel{
+    display: block;
+    margin-top: 0.5cm;
+    position: absolute;
+    left:1cm; 
+    height: 1.25cm;
+    width:3cm;
+    background-color: #c0c0c0;
+    color: rgb(74, 74, 74);
+    border: none;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 0.45cm;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+#cancel:hover{
+    background-color: #6d6d6d;
+    color: white;
+}
+#save {
+    display: block;
+    margin-top: 0.5cm;
+    position: relative;
+    right:-5.5cm;
+    
+    height: 1.25cm;
+    width: 3cm;
+    background-color: #31d469;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 0.45cm;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+#save:hover{
+    background-color: #25a14f;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.297);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    display: none;
+    
+}
+.condition {
+    color: rgb(174, 174, 174);
+}
+.satisfied {
+    color: green;
+}

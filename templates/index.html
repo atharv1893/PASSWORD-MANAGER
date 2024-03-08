@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cipher Vault</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
 </head>
 <body>
-    <img id = "background" src = "{{url_for('static', filename = 'hacker.jpg')}}">
+    <img id = "background" src = "{{url_for('static', filename = 'images/hacker.jpg')}}">
     <div id="overlay"></div>
-        <p>CIPHER VAULT</p>
+        <p>CIPHER VAULT</p>  
+        <span id = "tagline">Protecting Your Privacy, Without Compromise</span>
         <button id = "next">
             <a href = "register">
                 Let's Go

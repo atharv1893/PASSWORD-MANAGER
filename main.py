@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 import hashlib
+from bs4 import BeautifulSoup
+import requests
 
 app = Flask(__name__, static_url_path='/static')
 # Connect to MongoDB
@@ -31,7 +33,7 @@ def login():
                 # Insert data into MongoDB
                 user_data = {'email': email}
                 collection_login.insert_one(user_data)
-                return redirect(url_for('home'))  # Redirect to the 'location' route
+                return redirect(url_for('homepage'))  # Redirect to the 'location' route
             else:
                 # Password is incorrect, send alert message to the user
                 flash('Incorrect password. Please try again.', 'error')
@@ -72,6 +74,22 @@ def register():
 
 collection = db['Register']
 collection_login = db['Login']
+
+@app.route('/fetch_logo/<company>')
+def fetch_logo(company):
+    url = 'https://1000logos.net/{}-logo/'.format(company)
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        img_tag = soup.find('img', class_=lambda x: x and 'aligncenter' in x.split())
+        if img_tag:
+            img_src = img_tag.get('data-src')
+            return img_src
+    return ''  # Return empty string if image URL not found
+
+@app.route('/home')
+def homepage():
+    return render_template('homepage.html')
 
 
 if __name__ == '__main__':
