@@ -5,12 +5,14 @@
 
 }
 body{
-    background-color: #ebebeb;
+    height:100vh;
+    width:100%;
+    background-color: #252525;
     z-index: 1;
 }
 
 #popButton{
-    position: absolute;
+    position: fixed;
     right:1cm;
     bottom: 1cm;
     background-color:gray ;
@@ -22,6 +24,7 @@ body{
     justify-content: center;
     align-items: center;
    transition: 0.5s ease; 
+   z-index: 2;
 }
 #popButton img{
     height:0.8cm;
@@ -36,7 +39,7 @@ body{
 
 .card {
     position: fixed;
-    height: 11.5cm;
+    height: 10.5cm;
     width:9cm;
     top: 50%;
     left: 50%;
@@ -65,7 +68,7 @@ body{
 .card input {
     display: block;
     width: 8.25cm;
-    height: 0.75cm; /* Ensure inputs take up full width of parent */
+    height: 0.75cm; 
     padding: 0.25cm;
     border-radius: 0.4cm;
     border: 2px solid rgba(128, 128, 128, 0.384);
@@ -75,31 +78,40 @@ body{
     font-size: 0.4cm;
 }
 
-.card span {
-    display: block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 0.4cm;
-    color: gray;
-    margin-top: 0.2cm;
+.password-strength {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5cm;
+    height:2cm;
+    
 }
 
-.card ul {
-    display: block;
-    padding-left: 0; /* Remove default padding of unordered list */
+#progress-bar {
+    position: absolute;
+    bottom: -1.25cm; 
+    left: 0;
+    height: 0.2cm; 
+    width: 100%;
+    border-radius: 0.25cm; 
 }
 
-.card li {
-    display: block;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    padding: 0.125cm;
-    list-style: none;
+.progress-weak {
+    background-color: #e50022;
 }
+
+.progress-moderate {
+    background-color: #ffd800;
+}
+
+.progress-strong {
+    background-color: #31d469;
+}
+
 #cancel{
     display: block;
     margin-top: 0.5cm;
-    position: absolute;
+    position: relative;
+    top:0.8cm;
     left:1cm; 
     height: 1.25cm;
     width:3cm;
@@ -121,8 +133,8 @@ body{
     display: block;
     margin-top: 0.5cm;
     position: relative;
-    right:-5.5cm;
-    
+    right:-5.1cm;
+   top:-0.9cm; 
     height: 1.25cm;
     width: 3cm;
     background-color: #31d469;
@@ -154,4 +166,76 @@ body{
 }
 .satisfied {
     color: green;
+}
+
+#password-entries{
+    position: absolute;
+    margin-top:5cm;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+}
+.appcard {
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width:8cm;
+    height:5cm;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display:flex;
+    align-items: center;
+    justify-items: center;
+    z-index: 1;
+}
+.appcard img{
+    width:5.5cm;
+    height: 3cm;
+}
+.appcard:hover {
+    transform: scale(1.05);
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.appcard .details {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 60px rgba(128, 128, 128, 0.295);
+    padding: 10px;
+    border-radius: 5px;
+    width:7cm;
+    height:4cm;
+    font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#searchApp{
+    position: absolute;
+    top:1.5cm;
+    left:50%;
+    transform: translateX(-50%);
+    width: 10cm;
+    height:1cm;
+    border-radius: 0.5cm;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.45cm;
+    border: none;
+    padding: 0.25cm;
+
 }

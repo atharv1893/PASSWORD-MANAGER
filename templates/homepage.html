@@ -6,46 +6,66 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style/home_style.css')}}">
    
     <title>Company Logo Fetcher</title>
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    <!-- <div class="card">
-        <h2>Company Logo Fetcher</h2>
-        <input type="text" id="searchInput" placeholder="Enter company name">
-        <button onclick="fetchLogo()">Fetch Logo</button>
-        <div id="logoContainer"></div>
-    </div> -->
-        <button id = "popButton" onclick ="CardDisplay()">
+    
+    <div id="logoContainer"></div>
+        <button id = "popButton">
             <img src="{{url_for('static', filename='images/plus.png')}}" alt="plus sign">
         </button>
  <div class="overlay" id = "overlay"></div>
         <div class="card" id="card">
-            <form i d="myForm">
+            <form action = "/home" method = "POST" id="myForm">
 
                 <label for = "searchInput">Name</label>
-                <input type="text" id="searchInput" placeholder="Application Name" autocomplete="" required>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="Create a Password" oninput="checkPasswordStrength(this.value)" autocomplete="" required>
-                <img src ='{{url_for('static', filename="images/dice.png")}}'
-                <span>Password must include</span>
-                <ul>
-                    <li class="condition" id="lengthCondition">At least 8 characters</li>
-                    <li class="condition" id="specialCharCondition">At least one special character</li>
-                    <li class="condition" id="capitalLetterCondition">At least one capital letter</li>
-                    <li class="condition" id="lowercaseLetterCondition">At least one lowercase letter</li>
-                    <li class="condition" id="numberCondition">At least one number</li>
-                    
-                </ul>
+                <input type="text" id="searchInput" name = "ApplicationName" placeholder="Application Name"required>
+
+                <label for = "username">Username</label>
+                <input type="text" id="username" name = "Username" placeholder="Username"required>           
+                <div class="password-strength">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name = "password" placeholder="Create a Password" oninput="checkPasswordStrength(this.value)"required>
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
                 <button type="button" id="cancel">Cancel</button> 
                 <button id="save" onclick="fetchLogo()" >Save</button>
                 
             </div>
         </form>
-            <script src="{{url_for('static', filename='script/home_script.js')}}"></script>
+
+        <input type="text" id="searchApp" onkeyup="searchApplications(this.value)" placeholder="Search for application name...">
+        <div id="password-entries">
+            {% for entry in entries %}
+            <div class="appcard">
+                <div class="card-content">
+                    <img id="appimg" src="{{ logos[entry.applicationName] }}" alt="{{ entry.applicationName }} Logo">
+                    <div class="details">
+                        <p><strong>Name:</strong> {{ entry.applicationName }}</p>
+                        <p><strong>
+                            {% if "gmail" in entry.username %}
+                            Gmail:
+                            {% else %}
+                            Username:
+                            {% endif %}
+                        </strong> 
+                        {{ entry.username }}
+         
+                        </p>
+                        <p><strong>Password:</strong> {{ entry.password }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="noResultsMessage" style="display: none;">No matching applications found.</div> 
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+                <script src="{{url_for('static', filename='script/home_script.js')}}"></script>
    
 </body>
 </html>
